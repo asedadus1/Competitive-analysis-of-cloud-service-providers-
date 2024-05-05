@@ -1,0 +1,16 @@
+Location    UK West
+Size        Standard DS1 v2
+vCPUs       1
+RAM         3.5 GiB
+
+
+Operating system        Linux (ubuntu 22.04)
+Price                   $7.7081/month
+
+
+
+adusdmin@hostname:~$ python3 benchmark.py 
+Time to execute CPU benchmark:      10.01 seconds
+Time to execute memory benchmark:   10.01 seconds
+Time to execute file I/O benchmark: 10.03 seconds
+Total execution time:               30.06 seconds
