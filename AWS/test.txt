@@ -1,0 +1,22 @@
+
+    provisioner "remote-exec" {
+        inline = [
+            #"touch hello.txt",
+            #"echo helloworld remote provisioner >> hello.txt",
+            "sudo apt-get update", 
+            "sudo apt-get install sysbench", 
+            "sysbench --test=cpu run", 
+            "sysbench --test=memory run",
+            "sysbench --test=fileio --file-test-mode=seqwr run"
+        ]
+    }
+
+    #user_data = <<-EOF
+    #!/bin/sh
+    sudo apt-get update
+    sudo apt install sysbench 
+    sudo systemctl status apache2
+    sudo systemctl start apache2
+    sudo chown -R $USER:$USER /var/www/html
+    sudo echo "<html><body><h1>Hello this custom page built with Terraform User Data</h1></body></html>" > /var/www/html/index.html
+    EOF
